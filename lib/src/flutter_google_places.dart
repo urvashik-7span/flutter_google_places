@@ -118,7 +118,7 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
               padding: EdgeInsets.only(right: 10),
               height: 70,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   IconButton(
                     color: theme.brightness == Brightness.light
