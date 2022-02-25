@@ -286,6 +286,7 @@ class _AppBarPlacesAutoCompleteTextFieldState
     return Container(
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 4.0),
+        padding: const EdgeInsets.only(top: 10.0),
         child: TextField(
           controller: state._queryTextController,
           autofocus: true,
