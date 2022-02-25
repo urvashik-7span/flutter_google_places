@@ -85,10 +85,13 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
       return Theme(
         data: theme,
         child: Scaffold(
-            appBar: AppBar(
-              title: AppBarPlacesAutoCompleteTextField(
-                textDecoration: widget.decoration,
-                textStyle: widget.textStyle,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(100.0), // here the desired height
+              child: AppBar(
+                title: AppBarPlacesAutoCompleteTextField(
+                  textDecoration: widget.decoration,
+                  textStyle: widget.textStyle,
+                ),
               ),
             ),
             body: PlacesAutocompleteResult(
@@ -111,24 +114,25 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
             borderRadius: BorderRadius.only(
                 topLeft: headerTopLeftBorderRadius,
                 topRight: headerTopRightBorderRadius),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                IconButton(
-                  color: theme.brightness == Brightness.light
-                      ? Colors.black45
-                      : null,
-                  icon: _iconBack,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                Expanded(
-                    child: Padding(
-                  child: _textField(context),
-                  padding: const EdgeInsets.only(right: 8.0),
-                )),
-              ],
+            child: Container(
+
+              height: 70,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  IconButton(
+                    color: theme.brightness == Brightness.light
+                        ? Colors.black45
+                        : null,
+                    icon: _iconBack,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  Expanded(
+                      child: Center(child: _textField(context))),
+                ],
+              ),
             )),
         const Divider()
       ]);
@@ -153,7 +157,9 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
           _response!.predictions.isEmpty) {
         body = Material(
           color: theme.dialogBackgroundColor,
-          child: widget.logo ?? const PoweredByGoogleImage(),
+          child: Container(
+            height: 0,
+          ),
           borderRadius: BorderRadius.only(
             bottomLeft: bodyBottomLeftBorderRadius,
             bottomRight: bodyBottomRightBorderRadius,
@@ -182,6 +188,7 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
       }
 
       final container = Container(
+          height: 200,
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 30.0),
           child: Stack(children: <Widget>[
             header,
@@ -285,7 +292,7 @@ class _AppBarPlacesAutoCompleteTextFieldState
 
     return Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 4.0),
+        margin: const EdgeInsets.only(top: 10.0),
         padding: const EdgeInsets.only(top: 10.0),
         child: TextField(
           controller: state._queryTextController,

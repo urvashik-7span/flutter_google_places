@@ -168,17 +168,22 @@ class CustomSearchScaffold extends PlacesAutocompleteWidget {
 class _CustomSearchScaffoldState extends PlacesAutocompleteState {
   @override
   Widget build(BuildContext context) {
-    final appBar = AppBar(title: const AppBarPlacesAutoCompleteTextField());
-    final body = PlacesAutocompleteResult(
-      onTap: (p) {
-        displayPrediction(p, context);
-      },
-      logo: Row(
-        children: const [FlutterLogo()],
-        mainAxisAlignment: MainAxisAlignment.center,
-      ),
+    final appBar = PreferredSize(child: AppBar(title: const AppBarPlacesAutoCompleteTextField()), preferredSize:  Size.fromHeight(300.0),);
+    final body =Column(
+      children: [
+        AppBarPlacesAutoCompleteTextField(),
+        PlacesAutocompleteResult(
+          onTap: (p) {
+            displayPrediction(p, context);
+          },
+          logo: Row(
+            children: const [FlutterLogo()],
+            mainAxisAlignment: MainAxisAlignment.center,
+          ),
+        )
+      ],
     );
-    return Scaffold(key: searchScaffoldKey, appBar: appBar, body: body);
+    return Scaffold(key: searchScaffoldKey, body: body);
   }
 
   @override
