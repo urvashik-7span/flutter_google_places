@@ -117,7 +117,7 @@ class _MyAppState extends State<MyApp> {
       decoration: InputDecoration(
         hintText: 'Search',
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
             color: Colors.white,
           ),

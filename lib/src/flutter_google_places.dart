@@ -115,7 +115,7 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
                 topLeft: headerTopLeftBorderRadius,
                 topRight: headerTopRightBorderRadius),
             child: Container(
-
+              padding: EdgeInsets.only(right: 10),
               height: 70,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,7 +130,7 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
                     },
                   ),
                   Expanded(
-                      child: Center(child: _textField(context))),
+                      child: _textField(context)),
                 ],
               ),
             )),
