@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:google_api_headers/google_api_headers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
+import 'package:google_api_headers/google_api_headers.dart';
 import 'package:google_maps_webservice/places.dart';
 
 const kGoogleApiKey = "API_KEY";
@@ -122,6 +122,18 @@ class _MyAppState extends State<MyApp> {
             color: Colors.white,
           ),
         ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.white,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Colors.white,
+          ),
+        ),
       ),
       components: [Component(Component.country, "fr")],
     );
@@ -168,8 +180,11 @@ class CustomSearchScaffold extends PlacesAutocompleteWidget {
 class _CustomSearchScaffoldState extends PlacesAutocompleteState {
   @override
   Widget build(BuildContext context) {
-    final appBar = PreferredSize(child: AppBar(title: const AppBarPlacesAutoCompleteTextField()), preferredSize:  Size.fromHeight(300.0),);
-    final body =Column(
+    final appBar = PreferredSize(
+      child: AppBar(title: const AppBarPlacesAutoCompleteTextField()),
+      preferredSize: Size.fromHeight(300.0),
+    );
+    final body = Column(
       children: [
         AppBarPlacesAutoCompleteTextField(),
         PlacesAutocompleteResult(

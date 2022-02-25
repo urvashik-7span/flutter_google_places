@@ -130,7 +130,9 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
                     },
                   ),
                   Expanded(
-                      child: _textField(context)),
+                      child: Center(
+                        child: _textField(context),
+                      )),
                 ],
               ),
             )),
